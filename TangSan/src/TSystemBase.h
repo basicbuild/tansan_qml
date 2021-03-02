@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QStringList>
 
-#include "CSingleton.h"
+#include "TSingleton.h"
 
 class CSystemBase : public QObject {
     Q_OBJECT

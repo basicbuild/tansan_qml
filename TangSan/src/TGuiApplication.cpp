@@ -1,10 +1,10 @@
-#include "CGuiApplication.h"
+#include "TGuiApplication.h"
 
 #include <QQmlEngine>
 #include <QQuickView>
 #include <QtQml>
 
-#include "CSystemBase.h"
+#include "TSystemBase.h"
 #include "TEnumWrapper.h"
 
 class CGuiApplicationPrivate {
