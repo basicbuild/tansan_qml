@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qml/basicelements/BasicButton.qml</file>
+        <file>qml/basicelements/BasicImage.qml</file>
+        <file>qml/basicelements/BasicItem.qml</file>
+        <file>qml/basicelements/BasicRectangle.qml</file>
+        <file>qml/basicelements/BasicText.qml</file>
+        <file>qml/commons/qmldir</file>
+        <file>qml/commons/TButtonBase.qml</file>
+        <file>qml/commons/TButtonBaseMouseArea.qml</file>
+        <file>qml/commons/TColors.qml</file>
+        <file>qml/commons/TMouseArea.qml</file>
+        <file>qml/commons/TTimer.qml</file>
+        <file>qml/components/TButtonComponents.qml</file>
+        <file>qml/positioningelement/.gitkeep</file>
+        <file>qml/test/MTest.qml</file>
+        <file>qml/test/TMouseAreaTest.qml</file>
+    </qresource>
+</RCC>
