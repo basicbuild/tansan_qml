@@ -13,7 +13,6 @@
         <file>qml/commons/TMouseArea.qml</file>
         <file>qml/commons/TTimer.qml</file>
         <file>qml/components/TButtonComponents.qml</file>
-        <file>qml/positioningelement/.gitkeep</file>
         <file>qml/test/MTest.qml</file>
         <file>qml/test/TMouseAreaTest.qml</file>
     </qresource>
