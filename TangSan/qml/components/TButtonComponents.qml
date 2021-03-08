@@ -17,47 +17,75 @@ import "../commons"
 Window {
     id: id_item_root
     visible: true
-    width: 356
-    height: 320
+    width: 800
+    height: 254
     title: qsTr("Test")
     //z: id_item_root + 1
+    property int intrImageIndex: 1
+
+    function initPageImage()
+    {
+        id_timer.stop()
+        if(1 === intrImageIndex)
+            id_image.source = "qrc:/images/scanread_page1.png"
+        else if(2 === intrImageIndex)
+            id_image.source = "qrc:/images/scanread_content1.png"
+        id_timer.restart()
+    }
 
 
     Image {
         anchors.fill: parent
-        source: "qrc:/images/home-reading-bkgd.png"
-        //sourceSize: Qt.size(36, 36)
+        source: "qrc:/images/scanread_introduction"+ intrImageIndex +".png"
 
-        AnimatedImage  {
-            id:animated
-            anchors.bottom: parent.bottom
+        Image {
+            id: id_image
             anchors.right: parent.right
-            source: "qrc:/images/beautiful.gif"
-            width: 100
-            height: 100
-            paused: true
-
-            MouseArea {  // :/images/home-reading-bkgd.png   qrc:/images/home-reading-bkgd.png
-                anchors.fill: parent
-                anchors.left: parent.left
-                anchors.top: parent.top
-                onClicked: {
-                    console.log("YVerifyPage.qml === AnimatedImage.last.onClicked")
-                    animated.paused = !animated.paused;
+            anchors.rightMargin: 40
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: {
+                console.log("TButtonComponents.qml === anchors.bottomMargin24")
+                return 24
+            }
+            sourceSize: Qt.size(280, 150)
+            visible: 1 === intrImageIndex || 2 === intrImageIndex
+            source:{
+                if(1 === intrImageIndex){
+                    console.log("TButtonComponents.qml === id_image page1")
+                    return "qrc:/images/scanread_page1.png"
+                }else if(2 === intrImageIndex){
+                    console.log("TButtonComponents.qml === id_image content1")
+                    return "qrc:/images/scanread_content1.png"
                 }
             }
         }
 
-        MouseArea {  // :/images/home-reading-bkgd.png   qrc:/images/home-reading-bkgd.png
+        Timer{
+            id: id_timer
+            interval: 1000
+            onTriggered: {
+                //id_image.source = "qrc:/images/second.png"
+                // id_timer.stop()
+                console.warn("TButtonComponents.qml === id_timer")
+                // id_timer.restart()
+            }
+
+        }
+
+        Component.onCompleted: {
+            id_timer.start()
+        }
+
+        MouseArea {
             width: 50
             height: 50
             anchors.left: parent.left
             anchors.top: parent.top
             onClicked: {
-                console.log("YVerifyPage.qml === id_introduction_item.last.onClicked")
-                //                if (id_introduction_item.intrImageIndex > 1) {
-                //                    id_introduction_item.intrImageIndex -= 1
-                //                }
+                //console.log("YVerifyPage.qml === id_introduction_item.last.onClicked")
+                if (intrImageIndex > 1) {
+                    intrImageIndex -= 1
+                }
             }
         }
 
@@ -67,15 +95,20 @@ Window {
             anchors.right: parent.right
             anchors.top: parent.top
             onClicked: {
-                console.log("YVerifyPage.qml === id_introduction_item.next.onClicked")
-                //                if (id_introduction_item.intrImageIndex < 4) {
-                //                    id_introduction_item.intrImageIndex += 1
-                //                } else {
-                //                    verifyManager.openMainPage()
-                //                }
+                //console.log("YVerifyPage.qml === id_introduction_item.next.onClicked")
+                if (intrImageIndex < 4) {
+                    intrImageIndex += 1
+                } else {
+
+                }
             }
         }
     }
+
+
+
+
+
 
     //    TButtonBase{
     //        id: id_button_base
@@ -111,6 +144,25 @@ Window {
     //    }
 
 
+    //    AnimatedImage  {
+    //        id:animated
+    //        anchors.bottom: parent.bottom
+    //        anchors.right: parent.right
+    //        source: "qrc:/images/beautiful.gif"
+    //        width: 100
+    //        height: 100
+    //        paused: true
+
+    //        MouseArea {  // :/images/home-reading-bkgd.png   qrc:/images/home-reading-bkgd.png
+    //            anchors.fill: parent
+    //            anchors.left: parent.left
+    //            anchors.top: parent.top
+    //            onClicked: {
+    //                console.log("YVerifyPage.qml === AnimatedImage.last.onClicked")
+    //                animated.paused = !animated.paused;
+    //            }
+    //        }
+    //    }
 
 
 }
