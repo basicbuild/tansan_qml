@@ -1,12 +1,12 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "CGuiApplication.h"
+#include "TGuiApplication.h"
 
 int main(int argc, char* argv[]) {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    CGuiApplication app(argc, argv);
+    TGuiApplication app(argc, argv);
     return app.exec();
 
     //        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);

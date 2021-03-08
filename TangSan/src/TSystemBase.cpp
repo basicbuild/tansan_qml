@@ -1,8 +1,8 @@
 #include "TSystemBase.h"
 
-CSystemBase::CSystemBase(QObject* parent) : QObject(parent) {}
+TSystemBase::TSystemBase(QObject* parent) : QObject(parent) {}
 
-QStringList CSystemBase::basicElementsList() {
+QStringList TSystemBase::basicElementsList() {
     m_basicElementsList << "Item"
                         << "Rectangle"
                         << "Text"
@@ -11,12 +11,12 @@ QStringList CSystemBase::basicElementsList() {
     return m_basicElementsList;
 }
 
-void CSystemBase::setBasicElementsList(const QStringList& value) {
+void TSystemBase::setBasicElementsList(const QStringList& value) {
     m_basicElementsList = value;
     emit basicElementsListChanged();
 }
 
-QStringList CSystemBase::positioningElementList(){
+QStringList TSystemBase::positioningElementList(){
     m_positioningElementList << "Row"
                         << "Column"
                         << "Grid"
@@ -24,24 +24,24 @@ QStringList CSystemBase::positioningElementList(){
     return m_positioningElementList;
 }
 
-void CSystemBase::setPositioningElementList(const QStringList& value){
+void TSystemBase::setPositioningElementList(const QStringList& value){
     m_positioningElementList = value;
     emit positioningElementListChanged();
 }
 
-QStringList CSystemBase::componentList() {
+QStringList TSystemBase::componentList() {
     m_componentList << "Button"
                     << "Text"
                     << "Image";
     return m_componentList;
 }
 
-void CSystemBase::setComponentList(const QStringList& value) {
+void TSystemBase::setComponentList(const QStringList& value) {
     m_componentList = value;
     emit componentListChanged();
 }
 
-QStringList CSystemBase::modelList() {
+QStringList TSystemBase::modelList() {
     m_modelList << "QStringList"
                 << "QList"
                 << "Button"
@@ -50,12 +50,12 @@ QStringList CSystemBase::modelList() {
     return m_modelList;
 }
 
-void CSystemBase::setModelList(const QStringList& value) {
+void TSystemBase::setModelList(const QStringList& value) {
     m_modelList = value;
     emit modelListChanged();
 }
 
-QStringList CSystemBase::featuresList(){
+QStringList TSystemBase::featuresList(){
     m_featuresList << "弹窗方式1"
                 << "弹窗方式1"
                 << "弹窗方式1"
@@ -64,12 +64,12 @@ QStringList CSystemBase::featuresList(){
     return m_featuresList;
 }
 
-void CSystemBase::setFeaturesList(const QStringList& value){
+void TSystemBase::setFeaturesList(const QStringList& value){
     m_featuresList = value;
     emit featuresListChanged();
 }
 
-QStringList CSystemBase::resourcesList(){
+QStringList TSystemBase::resourcesList(){
     m_resourcesList << "《QmlBook》In Chinese"
                 << "色值"
                 << "Button"
@@ -78,7 +78,7 @@ QStringList CSystemBase::resourcesList(){
     return m_resourcesList;
 }
 
-void CSystemBase::setResourcesList(const QStringList& value){
+void TSystemBase::setResourcesList(const QStringList& value){
     m_resourcesList = value;
     emit resourcesListChanged();
 }

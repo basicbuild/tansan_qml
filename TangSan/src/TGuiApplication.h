@@ -1,18 +1,18 @@
-#ifndef CGUIAPPLICATION_H
-#define CGUIAPPLICATION_H
+#ifndef TGUIAPPLICATION_H
+#define TGUIAPPLICATION_H
 
 #include <QGuiApplication>
 
-class CGuiApplicationPrivate;
-class CGuiApplication : public QGuiApplication {
+class TGuiApplicationPrivate;
+class TGuiApplication : public QGuiApplication {
     Q_OBJECT
   public:
-    explicit CGuiApplication(int& argc, char** argv);
-    ~CGuiApplication();
+    explicit TGuiApplication(int& argc, char** argv);
+    ~TGuiApplication();
     int exec();
 
   private:
-    CGuiApplicationPrivate* p;
+    TGuiApplicationPrivate* p;
 };
 
 #endif  // CGUIAPPLICATION_H

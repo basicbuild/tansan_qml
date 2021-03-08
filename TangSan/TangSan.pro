@@ -21,8 +21,10 @@ INCLUDEPATH += . \
 
 SOURCES += \
         main.cpp \
-        src/CGuiApplication.cpp \
-        src/CSystemBase.cpp
+        src/TGuiApplication.cpp \
+        src/TSystemBase.cpp \
+        src/httpmodule/thttpmanager.cpp \
+        src/util/TStrUtils.cpp
 
 RESOURCES += qml.qrc
 
@@ -38,7 +40,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    src/CGuiApplication.h \
-    src/CSystemBase.h \
     src/TEnumWrapper.h \
-    src/util/CSingleton.h
+    src/TGuiApplication.h \
+    src/TSystemBase.h \
+    src/httpmodule/THttpDefine.h \
+    src/httpmodule/THttpManager.h \
+    src/httpmodule/TNetworkReplyTimeout.h \
+    src/util/TLogging.h \
+    src/util/TSingleton.h \
+    src/util/TStrUtils.h

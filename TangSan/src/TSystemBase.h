@@ -1,12 +1,12 @@
-#ifndef CSYSTEMBASE_H
-#define CSYSTEMBASEL_H
+#ifndef TSYSTEMBASE_H
+#define TSYSTEMBASEL_H
 
 #include <QObject>
 #include <QStringList>
 
 #include "TSingleton.h"
 
-class CSystemBase : public QObject {
+class TSystemBase : public QObject {
     Q_OBJECT
     Q_PROPERTY(QStringList basicElementsList READ basicElementsList WRITE setBasicElementsList NOTIFY basicElementsListChanged)
     Q_PROPERTY(QStringList positioningElementList READ positioningElementList WRITE setPositioningElementList NOTIFY positioningElementListChanged)
@@ -15,7 +15,7 @@ class CSystemBase : public QObject {
     Q_PROPERTY(QStringList featuresList READ featuresList WRITE setFeaturesList NOTIFY featuresListChanged)
     Q_PROPERTY(QStringList resourcesList READ resourcesList WRITE setResourcesList NOTIFY resourcesListChanged)
 public:
-    explicit CSystemBase(QObject* parent = nullptr);
+    explicit TSystemBase(QObject* parent = nullptr);
 
     /**
      * @brief 基本元素
@@ -73,5 +73,5 @@ private:
     QStringList m_resourcesList = {};
 };
 
-#define SYSTEMBASE CSingleton<CSystemBase>::instance()
-#endif  // CSYSTEMBASEL_H
+#define SYSTEMBASE TSingleton<TSystemBase>::instance()
+#endif  // TSYSTEMBASEL_H

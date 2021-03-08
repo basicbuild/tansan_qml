@@ -2,14 +2,14 @@
 * \file CSingleton
 * \brief 线程安全的单例宏
 */
-#ifndef CSINGLETON_H
-#define CSINGLETON_H
+#ifndef TSINGLETON_H
+#define TSINGLETON_H
 #include <stdlib.h>
 #include <mutex>
 #include <iostream>
 
 template<typename T>
-class CSingleton
+class TSingleton
 {
 public:
     static T *instance(){
@@ -21,7 +21,7 @@ public:
         return t;
     }
 
-    ~CSingleton() = default;
+    ~TSingleton() = default;
 
 private:
     static void destory(){
@@ -29,9 +29,9 @@ private:
         t = nullptr;
     }
 
-    CSingleton() = default; // 构造函数
-    CSingleton(const CSingleton&) = delete; // 拷贝构造
-    CSingleton& operator=(const CSingleton&) = delete; // 赋值运算符
+    TSingleton() = default; // 构造函数
+    TSingleton(const TSingleton&) = delete; // 拷贝构造
+    TSingleton& operator=(const TSingleton&) = delete; // 赋值运算符
     // default表示默认存在构造函数
     // delete表示默认删除拷贝构造函数和赋值运算符, 这样的对象就不能通过值传递，也不能进行赋值运算
 
@@ -43,6 +43,6 @@ private:
 };
 
 template <typename T>
-T* volatile CSingleton<T>::t = nullptr;
+T* volatile TSingleton<T>::t = nullptr;
 
-#endif // CSINGLETON_H
+#endif // TSINGLETON_H

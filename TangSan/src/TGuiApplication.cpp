@@ -7,10 +7,10 @@
 #include "TSystemBase.h"
 #include "TEnumWrapper.h"
 
-class CGuiApplicationPrivate {
+class TGuiApplicationPrivate {
   public:
-    explicit CGuiApplicationPrivate();
-    ~CGuiApplicationPrivate();
+    explicit TGuiApplicationPrivate();
+    ~TGuiApplicationPrivate();
 
     /**
      * @brief view展示及基类exec调用
@@ -45,7 +45,7 @@ class CGuiApplicationPrivate {
     QQuickView* m_pView = new QQuickView();
 };
 
-CGuiApplicationPrivate::CGuiApplicationPrivate() {
+TGuiApplicationPrivate::TGuiApplicationPrivate() {
     QCoreApplication::setOrganizationName(QStringLiteral("CSDN"));
     QCoreApplication::setOrganizationDomain(
         QStringLiteral("https://blog.csdn.net/qq_27096221?spm=1001.2101.3001.5343"));
@@ -66,41 +66,41 @@ CGuiApplicationPrivate::CGuiApplicationPrivate() {
     initUi();
 }
 
-CGuiApplicationPrivate::~CGuiApplicationPrivate() {
+TGuiApplicationPrivate::~TGuiApplicationPrivate() {
     if (m_pView) {
         m_pView->deleteLater();
         m_pView = nullptr;
     }
 }
 
-int CGuiApplicationPrivate::exec() {
+int TGuiApplicationPrivate::exec() {
     m_pView->show();
 
     return QGuiApplication::exec();
 }
 
-void CGuiApplicationPrivate::initClass() { initClassPrivate(m_pView); }
+void TGuiApplicationPrivate::initClass() { initClassPrivate(m_pView); }
 
-void CGuiApplicationPrivate::initUi() {
+void TGuiApplicationPrivate::initUi() {
     m_pView->setSource(QUrl(QStringLiteral("qrc:/main.qml")));
 
     m_pView->setResizeMode(QQuickView::SizeViewToRootObject);
     // m_pView->setFlags(Qt::FramelessWindowHint);
 }
 
-void CGuiApplicationPrivate::initClassPrivate(QQuickView* needClassView) {
+void TGuiApplicationPrivate::initClassPrivate(QQuickView* needClassView) {
     Q_ASSERT(nullptr != needClassView);
     m_pView->rootContext()->setContextProperty("systemBase", SYSTEMBASE);
 }
 
-CGuiApplication::CGuiApplication(int& argc, char** argv) :
-    QGuiApplication(argc, argv), p(new CGuiApplicationPrivate()) {}
+TGuiApplication::TGuiApplication(int& argc, char** argv) :
+    QGuiApplication(argc, argv), p(new TGuiApplicationPrivate()) {}
 
-CGuiApplication::~CGuiApplication() {
+TGuiApplication::~TGuiApplication() {
     if (p) {
         delete p;
         p = nullptr;
     }
 }
 
-int CGuiApplication::exec() { return p->exec(); }
+int TGuiApplication::exec() { return p->exec(); }
